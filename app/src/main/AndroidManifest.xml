@@ -10,6 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Culturai">
         <activity
+            android:name=".AccountActivity"
+            android:exported="true"
+            android:label="@string/title_activity_account"
+            android:theme="@style/Theme.Culturai.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".singUp"
             android:exported="true">
             <intent-filter>

@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Bruno Pontes/AndroidStudioProjects/Culturai-app/app/src/main/res/layout/activity_account.xml" value="0.33" />
         <entry key="..\:/Users/Bruno Pontes/AndroidStudioProjects/Culturai-app/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Bruno Pontes/AndroidStudioProjects/Culturai-app/app/src/main/res/layout/activity_onboarding.xml" value="0.209375" />
         <entry key="..\:/Users/Bruno Pontes/AndroidStudioProjects/Culturai-app/app/src/main/res/layout/activity_onboarding2.xml" value="0.209375" />
         <entry key="..\:/Users/Bruno Pontes/AndroidStudioProjects/Culturai-app/app/src/main/res/layout/activity_sing_up.xml" value="0.33" />
+        <entry key="..\:/Users/Bruno Pontes/AndroidStudioProjects/Culturai-app/app/src/main/res/layout/fragment_first.xml" value="0.209375" />
       </map>
     </option>
   </component>
