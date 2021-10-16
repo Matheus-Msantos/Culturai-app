@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/layout/activity_account.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/layout/activity_login.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/layout/activity_maps.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/layout/activity_onboarding.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/layout/activity_search_general.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/layout/activity_sing_up.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/layout/card_search_general.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/layout/info_event_address.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/layout/nav_header_main.xml" value="0.38697916666666665" />
+        <entry key="..\:/AndroidStudio/Culturai-app/app/src/main/res/menu/menunav.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/Bruno Pontes/AndroidStudioProjects/Culturai-app/app/src/main/res/layout/activity_account.xml" value="0.33" />
         <entry key="..\:/Users/Bruno Pontes/AndroidStudioProjects/Culturai-app/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Bruno Pontes/AndroidStudioProjects/Culturai-app/app/src/main/res/layout/activity_onboarding.xml" value="0.209375" />

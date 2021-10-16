@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home" />
+    <item
+        android:id="@+id/eventos"
+        android:title="Eventos" />
+    <item
+        android:id="@+id/carrinho"
+        android:title="Carrinho" />
+    <item
+        android:id="@+id/ingressos"
+        android:title="Ingressos" />
+    <item
+        android:id="@+id/minhaConta"
+        android:title="Minha Conta" />
+</menu>
