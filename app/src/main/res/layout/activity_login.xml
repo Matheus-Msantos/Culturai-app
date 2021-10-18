@@ -57,6 +57,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:text="entrar"
+        android:textStyle="bold"
+        app:cornerRadius="100px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPassLogin" />
@@ -69,6 +71,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:text="NÃO POSSUI CADASTRO?"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
