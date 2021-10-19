@@ -10,7 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Culturai">
         <activity
+<<<<<<< HEAD
             android:name=".HomeActivity"
+=======
+            android:name=".CheckoutFinishActivity"
+>>>>>>> 742eec9f3b49d3db3cf31942a1dd2690595c744d
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +23,20 @@
             </intent-filter>
         </activity>
         <activity
+<<<<<<< HEAD
             android:name=".MenuActivity"
+=======
+            android:name=".CheckoutPaymentActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CheckoutActivity"
+>>>>>>> 742eec9f3b49d3db3cf31942a1dd2690595c744d
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
