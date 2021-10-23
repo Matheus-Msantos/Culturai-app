@@ -41,7 +41,7 @@
                 android:progressTint="#0165A8" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imageCart"
                 android:layout_width="347dp"
                 android:layout_height="92dp"
                 android:layout_marginStart="32dp"
@@ -50,7 +50,7 @@
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textCartTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -62,7 +62,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textCartDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -71,7 +71,7 @@
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/textCartAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
