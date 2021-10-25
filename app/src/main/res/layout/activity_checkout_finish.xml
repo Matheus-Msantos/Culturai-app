@@ -59,7 +59,7 @@
                 android:text='Agora é só apresentar esse QR Code na entrada do evento Você pode consultar suas entradas na aba de "Ingressos"' />
 
             <ImageView
-                android:id="@+id/imageView11"
+                android:id="@+id/imageCheckout"
                 android:layout_width="347dp"
                 android:layout_height="93dp"
                 android:layout_gravity="center"
@@ -67,14 +67,14 @@
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/imageCheckoutQR"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/textCheckoutTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -85,7 +85,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/textCheckoutDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -96,7 +96,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/textCheckoutAdress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -107,7 +107,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/textCheckoutClassification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -118,7 +118,7 @@
                 android:textSize="12sp" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/buttonCheckoutHome"
                 android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

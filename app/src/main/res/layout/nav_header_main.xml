@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageUser"
         android:layout_width="0dp"
         android:layout_height="61dp"
         android:layout_marginStart="16dp"
@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/imagemusuario" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textNameUser"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageUser" />
 
     <View
         android:id="@+id/divider"
@@ -40,7 +40,7 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textNameUser" />
 
     <View
         android:id="@+id/view2"

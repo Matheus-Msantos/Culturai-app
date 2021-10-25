@@ -51,7 +51,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editCheckoutPaymentNumber"
+                android:id="@+id/editCheckoutCardNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -63,7 +63,7 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/editCheckoutPaymentDate"
+                android:id="@+id/editCheckoutCardVal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -75,7 +75,7 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/editCheckoutPaymentName"
+                android:id="@+id/editCheckoutCardName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -146,7 +146,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/buttonFinishPayment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"

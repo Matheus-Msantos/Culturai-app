@@ -108,7 +108,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editCreatePass" />
 
     <Button
-        android:id="@+id/btnCreate"
+        android:id="@+id/buttonCreateAccount"
         android:layout_width="327dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
