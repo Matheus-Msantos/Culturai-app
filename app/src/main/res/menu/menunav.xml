@@ -3,17 +3,14 @@
 
     <item
         android:id="@+id/home"
+        android:checkable="true"
         android:title="Home" />
     <item
-        android:id="@+id/eventos"
-        android:title="Eventos" />
-    <item
-        android:id="@+id/carrinho"
-        android:title="Carrinho" />
-    <item
         android:id="@+id/ingressos"
-        android:title="Ingressos" />
+        android:checkable="true"
+        android:title="Meus ingressos" />
     <item
         android:id="@+id/minhaConta"
+        android:checkable="true"
         android:title="Minha Conta" />
 </menu>

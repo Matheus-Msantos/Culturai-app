@@ -6,7 +6,6 @@ import br.senac.culturai.databinding.ActivityCartBinding
 import br.senac.culturai.databinding.ActivityEventBinding
 
 class EventActivity : AppCompatActivity() {
-
     lateinit var binding: ActivityEventBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,11 +17,11 @@ class EventActivity : AppCompatActivity() {
         val imageEvent = binding.imageEvent
         val textEventTitle = binding.textEventTitle
         val textEventDate = binding.textEventDate
-        val  textEventAddress = binding.textEventAddress
+        val textEventAddress = binding.textEventAddress
         val textEventPrice = binding.textEventPrice
-        val  textEventClassification = binding.textEventClassification
-        val  textEventDescription = binding.textEventDescription
-        val  buttonTickets = binding.buttonTickets
+        val textEventClassification = binding.textEventClassification
+        val textEventDescription = binding.textEventDescription
+        val buttonTickets = binding.buttonTickets
 
     }
 }

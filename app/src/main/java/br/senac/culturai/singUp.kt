@@ -16,9 +16,9 @@ class singUp : AppCompatActivity() {
 
         val editCreateName = binding.editCreateName
         val editCreateEmail = binding.editCreateEmail
-        val  editConfirmEmail = binding.editConfirmEmail
-        val  editCreatePass = binding.editCreatePass
-        val  editConfirmPass = binding.editConfirmPass
-        val  buttonCreateAccount= binding.buttonCreateAccount
+        val editConfirmEmail = binding.editConfirmEmail
+        val editCreatePass = binding.editCreatePass
+        val editConfirmPass = binding.editConfirmPass
+        val buttonCreateAccount= binding.buttonCreateAccount
     }
 }

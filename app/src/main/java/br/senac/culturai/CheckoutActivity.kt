@@ -6,8 +6,6 @@ import br.senac.culturai.databinding.ActivityCartBinding
 import br.senac.culturai.databinding.ActivityCheckoutBinding
 
 class CheckoutActivity : AppCompatActivity() {
-
-
     lateinit var binding: ActivityCheckoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,13 +14,11 @@ class CheckoutActivity : AppCompatActivity() {
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val editCheckoutCardNumber = binding.editCheckoutCardNumber
-        val  editCheckoutCardVal = binding.editCheckoutCardVal
-        val  editCheckoutCardCvv = binding.editCheckoutCardCvv
-        val editCheckoutCardName = binding.editCheckoutCardName
-        val editCheckoutCardCpf = binding.editCheckoutCardCpf
-        val buttonFinishPayment = binding.buttonFinishPayment
+        val editCheckoutCardNumber = binding.editCheckoutNumber
+        val editCheckoutCardVal = binding.editCheckoutValidate
+        val editCheckoutCardCvv = binding.editCheckoutCardCvv
+        val editCheckoutCardName = binding.editCheckoutNameHolder
+        val buttonFinishPayment = binding.buttonFinishCheckout
 
 
 

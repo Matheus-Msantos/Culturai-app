@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val editLoginEmail = binding.editLoginEmail
-        val  editLoginPassword = binding.editLoginPassword
+        val editLoginPassword = binding.editLoginPassword
         val buttonLogin = binding.buttonLogin
 
     }

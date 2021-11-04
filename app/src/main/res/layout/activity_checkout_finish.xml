@@ -64,7 +64,7 @@
                 android:layout_height="93dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                app:srcCompat="@color/black_800" />
 
             <ImageView
                 android:id="@+id/imageCheckoutQR"

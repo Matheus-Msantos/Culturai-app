@@ -51,11 +51,11 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editCheckoutCardNumber"
+                android:id="@+id/editCheckoutPaymentName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:ems="10"
                 android:hint="Nome"
@@ -63,27 +63,27 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/editCheckoutCardVal"
+                android:id="@+id/editCheckoutPaymentEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:ems="10"
-                android:hint="E-mail"
-                android:inputType="textEmailAddress"
+                android:hint="Email"
+                android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/editCheckoutCardName"
+                android:id="@+id/editCheckoutPaymentCpf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:ems="10"
-                android:hint="CPF"
-                android:inputType="phone"
+                android:hint="Cpf"
+                android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
             <TextView

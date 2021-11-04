@@ -16,11 +16,11 @@ class CheckoutPaymentActivity : AppCompatActivity() {
         binding = ActivityCheckoutPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //var editCheckoutPaymentName = binding.editCheckoutPaymentName
-        //var editCheckoutPaymentEmail = binding.editCheckoutPaymentEmail
-        //var editCheckoutPaymentCPF = binding.editCheckoutPaymentCPF
-        //var  checkCheckoutDebito = binding.checkCheckoutDebito
-        //var  checkCheckoutCredito = binding.checkCheckoutCredito
-        //var buttonCheckoutFinish = binding.buttonCheckoutFinish
+        var editCheckoutPaymentName = binding.editCheckoutPaymentName
+        var editCheckoutPaymentEmail = binding.editCheckoutPaymentEmail
+        var editCheckoutPaymentCPF = binding.editCheckoutPaymentCpf
+        var checkCheckoutDebito = binding.checkCheckoutDebito
+        var checkCheckoutCredito = binding.checkCheckoutCredito
+        var buttonCheckoutFinish = binding.buttonFinishPayment
     }
 }

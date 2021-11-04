@@ -51,7 +51,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editCheckoutCardNumber"
+                android:id="@+id/editCheckoutNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -70,7 +70,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editCheckoutCardVal"
+                    android:id="@+id/editCheckoutValidate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -92,7 +92,7 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/editCheckoutCardName"
+                android:id="@+id/editCheckoutNameHolder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -101,18 +101,6 @@
                 android:ems="10"
                 android:hint="Nome do titular"
                 android:inputType="phone"
-                android:minHeight="48dp" />
-
-            <EditText
-                android:id="@+id/editCheckoutCardCpf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
-                android:ems="10"
-                android:hint="CPF"
-                android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
             <TextView
@@ -200,13 +188,14 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/buttonFinishPayment"
+                    android:id="@+id/buttonFinishCheckout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#F30502"
-                    android:text="Button" />
+                    android:backgroundTint="@color/red_600"
+                    android:text="Finalizar compra" />
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
