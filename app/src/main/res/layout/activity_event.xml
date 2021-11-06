@@ -16,12 +16,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <include
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <ImageView
                 android:id="@+id/imageEvent"
                 android:layout_width="354dp"
                 android:layout_height="194dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="62dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginBottom="16dp"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
@@ -31,10 +36,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="8dp"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="#050505"
                 android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textEventPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
+                android:drawablePadding="3dp"
+                android:drawableTint="@color/orange_500"
+                android:text="TextView"
+                android:textColor="#050505"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -45,10 +64,11 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="8dp"
                 android:drawableStart="@drawable/calendar"
-                android:drawableTint="#000000"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/orange_500"
                 android:text="TextView"
-                android:textColor="#7F7F7F"
-                android:textSize="14sp" />
+                android:textColor="#050505"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textEventAddress"
@@ -58,23 +78,25 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="8dp"
                 android:drawableStart="@drawable/location_maps"
-                android:drawableTint="#000000"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/blue_500"
                 android:text="TextView"
-                android:textColor="#7F7F7F"
-                android:textSize="14sp" />
+                android:textColor="#050505"
+                android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textEventPrice"
+                android:id="@+id/textEventTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="8dp"
-                android:drawableStart="@drawable/attach_money"
-                android:drawableTint="#000000"
+                android:drawableStart="@drawable/time"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/blue_500"
                 android:text="TextView"
-                android:textColor="#7F7F7F"
-                android:textSize="14sp" />
+                android:textColor="#050505"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textEventClassification"
@@ -83,10 +105,25 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:drawableStart="@drawable/world"
+                android:drawablePadding="10dp"
                 android:drawableTint="#000000"
                 android:text="TextView"
-                android:textColor="#7F7F7F"
-                android:textSize="14sp" />
+                android:textColor="#050505"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textEventCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:drawableStart="@drawable/ic_baseline_category_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="#000000"
+                android:text="TextView"
+                android:textColor="#050505"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -107,9 +144,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="62dp"
+                android:layout_marginBottom="16dp"
                 android:text="TextView"
-                android:textColor="#7F7F7F"
+                android:textColor="#050505"
                 android:textSize="14sp" />
 
             <Button

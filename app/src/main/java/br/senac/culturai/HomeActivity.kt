@@ -8,9 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+
 import br.senac.culturai.databinding.ActivityHomeBinding
-
-
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
@@ -22,7 +21,6 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*--- Variaveis ---*/
         val drawerLayout = binding.drawerLayout
         var frag: Fragment
 
@@ -33,6 +31,12 @@ class HomeActivity : AppCompatActivity() {
 
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+
+        frag = EventListFragment.newInstance()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, frag)
+            .commit()
 
         binding.navgationView.setNavigationItemSelectedListener {
             drawerLayout.closeDrawers()

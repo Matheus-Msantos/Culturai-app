@@ -9,8 +9,10 @@ data class Product(
 	val date: String,
 	val classification: String,
 	val image: String,
-	val addressId: Int,
+	val addressId: Address,
+	val address: Address,
 	val categoryId: Int,
+	val category: Category,
 	val createdAt: String,
 	val updatedAt: String
 )
