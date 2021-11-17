@@ -1,19 +1,71 @@
 package br.senac.culturai
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import br.senac.culturai.api.API
+import br.senac.culturai.databinding.FragmentAccountBinding
+import br.senac.culturai.model.User
+import com.google.android.material.snackbar.Snackbar
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 class AccountFragment : Fragment() {
+lateinit var binding: FragmentAccountBinding
 
+override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    binding = FragmentAccountBinding.inflate(inflater)
 
-override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false)
+    val callback = object: Callback<User> {
+        override fun onResponse(call: Call<User>, response: Response<User>) {
+            val user = response.body()
+            if(response.isSuccessful && user != null){
+                showUserUI(user)
+
+            }else if(response.code() == 401) {
+                Snackbar.make(binding.ConstraintLayout, "Falha na autentição, faça o login novamente", Snackbar.LENGTH_LONG)
+                    .show()
+            } else{
+                var msg = response.message().toString()
+                if(msg == "") {
+                    msg = "Não foi possivel entrar na conta"
+                }
+
+                Snackbar.make(binding.ConstraintLayout, msg, Snackbar.LENGTH_LONG)
+                    .show()
+                response.errorBody()?.let{
+                    Log.e("Error", it.string())
+                }
+
+                val i = Intent(activity, LoginActivity::class.java)
+                startActivity(i)
+            }
+        }
+
+        override fun onFailure(call: Call<User>, t: Throwable) {
+            Snackbar.make(binding.ConstraintLayout, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG)
+                .show()
+            Log.e("Error", "Falha ao executar serviço", t)
+        }
+
+    }
+
+    val cxt = getActivity()?.getApplicationContext()
+    if (cxt != null) {
+        API(cxt).account.user().enqueue(callback)
+    }
+
+    return binding.root
+}
+
+    fun showUserUI(user: User?) {
+        binding.textAccountName.text = user?.name
     }
 
     companion object {

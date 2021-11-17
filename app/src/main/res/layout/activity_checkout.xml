@@ -9,7 +9,11 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,21 +27,12 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                android:text="Status do pedido"
+                android:text="Pagamento"
                 android:textAlignment="center"
-                android:textColor="#F17604"
+                android:textAllCaps="true"
+                android:textColor="@color/blue_500"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="32dp"
-                android:progressTint="#0165A8" />
 
             <TextView
                 android:id="@+id/textView17"
@@ -168,10 +163,10 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="32dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="43dp"
                 android:background="#99E4E4E4"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView19"
@@ -180,24 +175,32 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_weight="1"
-                    android:drawableStart="@drawable/ticket"
-                    android:drawableTint="#01318B"
-                    android:text="TextView"
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/buttonFinishCheckout"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/red_600"
+                    android:backgroundTint="@color/orange_500"
                     android:text="Finalizar compra" />
 
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

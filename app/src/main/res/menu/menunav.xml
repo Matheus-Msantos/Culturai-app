@@ -13,4 +13,8 @@
         android:id="@+id/minhaConta"
         android:checkable="true"
         android:title="Minha Conta" />
+    <item
+        android:id="@+id/login"
+        android:checkable="true"
+        android:title="Login" />
 </menu>

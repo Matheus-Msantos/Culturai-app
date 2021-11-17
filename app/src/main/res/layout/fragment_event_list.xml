@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:checkable="true"
             android:text="Filme" />
+
     </com.google.android.material.chip.ChipGroup>
 
     <ScrollView

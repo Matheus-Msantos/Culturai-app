@@ -12,9 +12,9 @@ interface CartApi {
     @GET("/api/cart")
     fun list():Call<List<Cart>>
 
-    @POST("/api/cart/add/{id}")
-    fun add(@Path("id") id: Int): Call<Void>
+    @GET("/api/cart/add/{product}")
+    fun add(@Path("product") product: Int): Call<Void>
 
-    @POST("/api/cart/remove/{id}")
+    @GET("/api/cart/remove/{id}")
     fun remove(@Path("id") id: Int): Call<Void>
 }

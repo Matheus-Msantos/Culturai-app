@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -14,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <include
                 layout="@layout/toolbar"
@@ -65,7 +66,7 @@
                 android:layout_marginBottom="8dp"
                 android:drawableStart="@drawable/calendar"
                 android:drawablePadding="10dp"
-                android:drawableTint="@color/orange_500"
+                android:drawableTint="@color/blue_500"
                 android:text="TextView"
                 android:textColor="#050505"
                 android:textSize="12sp" />
@@ -106,7 +107,7 @@
                 android:layout_marginEnd="32dp"
                 android:drawableStart="@drawable/world"
                 android:drawablePadding="10dp"
-                android:drawableTint="#000000"
+                android:drawableTint="@color/blue_500"
                 android:text="TextView"
                 android:textColor="#050505"
                 android:textSize="12sp" />
@@ -120,7 +121,7 @@
                 android:layout_marginEnd="32dp"
                 android:drawableStart="@drawable/ic_baseline_category_24"
                 android:drawablePadding="10dp"
-                android:drawableTint="#000000"
+                android:drawableTint="@color/blue_500"
                 android:text="TextView"
                 android:textColor="#050505"
                 android:textSize="12sp" />
@@ -155,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="62dp"
                 android:layout_marginEnd="62dp"
-                android:backgroundTint="#F30502"
+                android:backgroundTint="@color/orange_500"
                 android:text="Ingressos"
                 android:textStyle="bold" />
 

@@ -13,6 +13,6 @@ data class Product(
 	val address: Address,
 	val categoryId: Int,
 	val category: Category,
-	val createdAt: String,
-	val updatedAt: String
+	val created_at: String,
+	val updated_at: String
 )

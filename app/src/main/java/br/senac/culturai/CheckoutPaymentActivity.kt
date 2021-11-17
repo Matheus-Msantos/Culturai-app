@@ -1,8 +1,10 @@
 package br.senac.culturai
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.senac.culturai.databinding.ActivityCartBinding
+import br.senac.culturai.databinding.ActivityCheckoutBinding
 import br.senac.culturai.databinding.ActivityCheckoutPaymentBinding
 
 class CheckoutPaymentActivity : AppCompatActivity() {
@@ -21,6 +23,11 @@ class CheckoutPaymentActivity : AppCompatActivity() {
         var editCheckoutPaymentCPF = binding.editCheckoutPaymentCpf
         var checkCheckoutDebito = binding.checkCheckoutDebito
         var checkCheckoutCredito = binding.checkCheckoutCredito
-        var buttonCheckoutFinish = binding.buttonFinishPayment
+
+
+        binding.buttonFinishPayment.setOnClickListener{
+            val i = Intent(this, CheckoutActivity::class.java)
+            startActivity(i)
+        }
     }
 }

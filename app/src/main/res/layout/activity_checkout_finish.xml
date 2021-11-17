@@ -9,7 +9,10 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,19 +28,10 @@
                 android:layout_marginEnd="32dp"
                 android:text="Compra Finalizada"
                 android:textAlignment="center"
-                android:textColor="#F17604"
-                android:textSize="20sp"
+                android:textAllCaps="true"
+                android:textColor="@color/blue_500"
+                android:textSize="23sp"
                 android:textStyle="bold" />
-
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="32dp"
-                android:progressTint="#0165A8" />
 
             <TextView
                 android:id="@+id/textView17"
@@ -56,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:text='Agora é só apresentar esse QR Code na entrada do evento Você pode consultar suas entradas na aba de "Ingressos"' />
+                android:text='Seu pedido está em analize, assim que for aprovado você já poderá participar do evento. Você pode acompanhar os status dos seus pedidos na área de "Meus Ingressos"' />
 
             <ImageView
                 android:id="@+id/imageCheckout"
@@ -65,13 +59,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 app:srcCompat="@color/black_800" />
-
-            <ImageView
-                android:id="@+id/imageCheckoutQR"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
                 android:id="@+id/textCheckoutTitle"
@@ -85,7 +72,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textCheckoutDate"
+                android:id="@+id/textCheckoutStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -96,7 +83,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textCheckoutAdress"
+                android:id="@+id/textCheckoutCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -107,7 +94,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textCheckoutClassification"
+                android:id="@+id/textCheckoutData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -116,16 +103,38 @@
                 android:text="TextView"
                 android:textColor="#01318B"
                 android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/buttonCheckoutHome"
-                android:layout_width="115dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="#01318B"
-                android:text="Button" />
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/buttonCheckoutHome"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#01318B"
+            android:text="Home"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
