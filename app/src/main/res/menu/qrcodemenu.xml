@@ -5,11 +5,6 @@
     <item
         android:id="@+id/qrcode"
         android:icon="@drawable/icon_qrcode"
-        android:title="Qrcode"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/carrinho"
-        android:icon="@drawable/icon_ticket"
-        android:title="carrinho"
+        android:title="qrcode"
         app:showAsAction="always" />
 </menu>

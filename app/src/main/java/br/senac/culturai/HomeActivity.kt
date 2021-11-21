@@ -7,7 +7,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import br.senac.culturai.api.API
 
@@ -33,6 +38,7 @@ class HomeActivity : AppCompatActivity() {
 
         val drawerLayout = binding.drawerLayout
         var frag: Fragment
+
 
         setSupportActionBar(findViewById(R.id.myToolBar))
 
@@ -83,6 +89,14 @@ class HomeActivity : AppCompatActivity() {
             true
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateUser()
+    }
+
+    fun updateUser() {
         val callback = object: Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 val user = response.body()
@@ -90,16 +104,15 @@ class HomeActivity : AppCompatActivity() {
                     showUserUI(user)
 
                 }else if(response.code() == 401) {
-                    Snackbar.make(binding.drawerLayout, "Falha na autentição, faça o login novamente", Snackbar.LENGTH_LONG)
-                        .show()
+                    Snackbar.make(binding.drawerLayout, "Falha na autentição, faça o login novamente!", Snackbar.LENGTH_LONG).show()
                 } else{
                     var msg = response.message().toString()
+
                     if(msg == "") {
-                        msg = "Não foi possivel entrar na conta"
+                        msg = "Não foi possível acessar sua conta, faça o login novamente!"
                     }
 
-                    Snackbar.make(binding.drawerLayout, msg, Snackbar.LENGTH_LONG)
-                        .show()
+                    Snackbar.make(binding.drawerLayout, msg, Snackbar.LENGTH_LONG).show()
                     response.errorBody()?.let{
                         Log.e("Error", it.string())
                     }
@@ -107,21 +120,22 @@ class HomeActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                Snackbar.make(binding.drawerLayout, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG)
-                    .show()
-                Log.e("Error", "Falha ao executar serviço", t)
+                Snackbar.make(binding.drawerLayout, "Estamos com problemas para se conectar com o servidor!", Snackbar.LENGTH_LONG).show()
+                Log.e("Error", "Falha ao executar serviço login na home!", t)
             }
-
         }
 
-
         API(this).account.user().enqueue(callback)
-
-
-
     }
 
     fun showUserUI(user: User?) {
+        val h = binding.navgationView.getHeaderView(0)
+        val name = h.findViewById<TextView>(R.id.textNameUser)
+        val image = h.findViewById<ImageView>(R.id.imageUser)
+
+        name.setText(user?.name)
+        image.setImageResource(R.drawable.no_user)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -132,7 +146,24 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.carrinho -> startActivity(Intent(this, CartActivity::class.java))
+            R.id.qrcode -> {
+                val i = Intent(this, QrCodeActivity::class.java)
+                startActivityForResult(i, 1)
+            }
         }
         return toggle.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            val qrcodeId = data?.getStringExtra("qrcode") as String
+
+            val i = Intent(this, EventActivity::class.java)
+            i.putExtra("qrcode", qrcodeId)
+            startActivity(i)
+
+        }
     }
 }

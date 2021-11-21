@@ -18,11 +18,11 @@
         android:paddingBottom="8dp">
 
         <TextView
-            android:id="@+id/textCardOrderName"
+            android:id="@+id/textCardOrderId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Nome do evento"
+            android:text="Id"
             android:textColor="@color/blue_500"
             android:textSize="12sp"
             android:textStyle="bold" />

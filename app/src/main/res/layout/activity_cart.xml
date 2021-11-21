@@ -51,6 +51,7 @@
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:drawableTint="#01318B"
+            android:text="text"
             android:textColor="#000000"
             android:textSize="18sp"
             android:textStyle="bold" />

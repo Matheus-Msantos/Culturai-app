@@ -39,7 +39,7 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_main"
         app:itemTextColor="@color/navgation_nav"
-        app:menu="@menu/menunav" >
+        app:menu="@menu/menunav">
 
     </com.google.android.material.navigation.NavigationView>
 

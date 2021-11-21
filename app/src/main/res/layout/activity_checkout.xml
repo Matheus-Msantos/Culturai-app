@@ -45,58 +45,80 @@
                 android:textColor="#F17604"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/editCheckoutNumber"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputCheckoutNumber"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="32dp"
-                android:ems="10"
-                android:hint="Numero do cartão"
-                android:inputType="number"
-                android:minHeight="48dp" />
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editCheckoutNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Número do cartão"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editCheckoutValidate"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputCheckoutValidate"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="32dp"
-                    android:ems="10"
-                    android:hint="Data de validade"
-                    android:inputType="date"
-                    android:minHeight="48dp" />
+                    android:layout_height="60dp"
+                    android:layout_weight="0">
 
-                <EditText
-                    android:id="@+id/editCheckoutCardCvv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="CVV"
-                    android:inputType="number"
-                    android:minHeight="48dp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editCheckoutValidate"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:hint="Data de validade"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputCheckoutCvv"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="0">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editCheckoutCvv"
+                        android:layout_width="95dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:hint="CVV"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/editCheckoutNameHolder"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputCheckoutName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
-                android:ems="10"
-                android:hint="Nome do titular"
-                android:inputType="phone"
-                android:minHeight="48dp" />
+                android:layout_marginEnd="32dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editCheckoutName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nome do titular " />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/textView18"
@@ -161,35 +183,16 @@
                     app:srcCompat="@drawable/icon_payment_visa_electron" />
             </LinearLayout>
 
-            <LinearLayout
+            <Button
+                android:id="@+id/buttonFinishCheckout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="43dp"
-                android:background="#99E4E4E4"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_weight="1"
-                    android:textColor="#000"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/buttonFinishCheckout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/orange_500"
-                    android:text="Finalizar compra" />
-
-            </LinearLayout>
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/orange_500"
+                android:text="Finalizar compra" />
 
         </LinearLayout>
     </ScrollView>

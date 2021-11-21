@@ -73,33 +73,44 @@ class CartActivity : AppCompatActivity() {
         List?.forEach() {
             val cardBinding = CardCartBinding.inflate(layoutInflater)
 
-
             Picasso.get().load("http://10.0.2.2:8000/${it.product.image}")
                 .error(R.drawable.no_image)
                 .into(cardBinding.CardImageCart)
 
             cardBinding.CardNameCart.text = it.product.name
             cardBinding.CardQuantityCart.text = it.quantity.toString()
-            cardBinding.CardPriceCart.text = "Valor: R$${it.product.price} - Un"
+            cardBinding.CardPriceCart.text = it.product.price
 
             cardBinding.ButtonCartAdd.setOnClickListener{view ->
-                addCart(it.product_id)
+                addCart(it.product_id, cardBinding, it.product.price.toInt())
             }
 
             cardBinding.ButtonCartRemove.setOnClickListener{view ->
-                removeCart(it.product_id)
+                removeCart(it.product_id, cardBinding, it.product.price.toInt())
             }
 
             binding.containerCart.addView(cardBinding.root)
         }
     }
 
-    fun addCart(id: Int) {
+    fun addCart(id: Int, card: CardCartBinding, priceP: Int) {
         val callback = object: Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if(response.isSuccessful){
                     Snackbar.make(binding.LinearLayout3,"Pedido adicionado ao carrinho", Snackbar.LENGTH_LONG)
                         .show()
+
+                    var quantity = card.CardQuantityCart.text.toString().toInt()
+                    quantity++
+                    card.CardQuantityCart.text = quantity.toString()
+
+                    var price = card.CardPriceCart.text.toString().toInt()
+                    val total = price + priceP
+                    card.CardPriceCart.text = total.toString()
+                    var value = total
+                    binding.CartTotalPrice.text = value.toString()
+
+
 
                 }else {
                     var msg = response.message().toString()
@@ -126,12 +137,20 @@ class CartActivity : AppCompatActivity() {
         API(this).cart.add(id).enqueue(callback)
     }
 
-    fun removeCart(id: Int) {
+    fun removeCart(id: Int, card: CardCartBinding, priceP: Int) {
         val callback = object: Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if(response.isSuccessful){
                     Snackbar.make(binding.LinearLayout3,"Pedido removido do carrinho", Snackbar.LENGTH_LONG)
                         .show()
+
+                    var quantity = card.CardQuantityCart.text.toString().toInt()
+                    quantity--
+                    card.CardQuantityCart.text = quantity.toString()
+
+                    var price = card.CardPriceCart.text.toString().toInt()
+                    val total = price - priceP
+                    card.CardPriceCart.text = total.toString()
 
                 }else {
                     var msg = response.message().toString()

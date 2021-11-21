@@ -168,11 +168,11 @@ class EventListFragment() : Fragment() {
         val chipGet = binding.chip4
 
         List?.forEach() {
-            val genres = arrayOf(it.name)
+            val genres = it.name
             val chip = Chip(chipGet.getContext())
-            chip.setText(genres[0])
+            chip.text = genres
 
-            chip.setOnClickListener{
+            chip.setOnClickListener{view ->
                 filter(it.id)
             }
 

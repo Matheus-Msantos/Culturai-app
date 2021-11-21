@@ -12,6 +12,7 @@ import br.senac.culturai.api.API
 import br.senac.culturai.databinding.FragmentAccountBinding
 import br.senac.culturai.model.User
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -65,6 +66,11 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
 }
 
     fun showUserUI(user: User?) {
+
+        Picasso.get().load("http://10.0.2.2:8000/${user?.image}")
+            .error(R.drawable.no_user)
+            .into(binding.imageAccountUser)
+
         binding.textAccountName.text = user?.name
     }
 

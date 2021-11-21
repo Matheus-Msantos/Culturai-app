@@ -69,7 +69,9 @@ class OrderFragment : Fragment() {
         List?.forEach() {
             val cardBinding = CardOrderBinding.inflate(layoutInflater)
 
-            cardBinding.textCardOrderName.text = it.cc_number
+            cardBinding.textCardOrderId.text = it.id.toString()
+            cardBinding.textCardOrderStatus.text = it.status
+
 
             val item = it.order_item?.forEach {orderItem ->
 
@@ -79,9 +81,6 @@ class OrderFragment : Fragment() {
                     startActivity(i)
                 }
             }
-
-
-
 
             binding.container.addView(cardBinding.root)
         }
