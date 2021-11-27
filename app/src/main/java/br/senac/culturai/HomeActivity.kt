@@ -1,23 +1,25 @@
 package br.senac.culturai
 
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import br.senac.culturai.api.API
+import br.senac.culturai.api.FILE_LOGIN
 
 import br.senac.culturai.databinding.ActivityHomeBinding
-import br.senac.culturai.databinding.NavHeaderMainBinding
+import br.senac.culturai.model.Login
+import br.senac.culturai.model.Token
 import br.senac.culturai.model.User
 
 import com.google.android.material.snackbar.Snackbar
@@ -39,6 +41,7 @@ class HomeActivity : AppCompatActivity() {
         val drawerLayout = binding.drawerLayout
         var frag: Fragment
 
+        updateUser()
 
         setSupportActionBar(findViewById(R.id.myToolBar))
 
@@ -53,6 +56,7 @@ class HomeActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.container, frag)
             .commit()
+
 
         binding.navgationView.setNavigationItemSelectedListener {
             drawerLayout.closeDrawers()
@@ -73,7 +77,7 @@ class HomeActivity : AppCompatActivity() {
                         .commit()
                 }
 
-                R.id.minhaConta -> {
+                R.id.meusDados -> {
                     frag = AccountFragment.newInstance()
                     supportFragmentManager
                         .beginTransaction()
@@ -81,8 +85,23 @@ class HomeActivity : AppCompatActivity() {
                         .commit()
                 }
 
+                R.id.cart -> {
+                    val i = Intent(this, CartActivity::class.java)
+                    startActivity(i)
+                }
+
+                R.id.qrcode -> {
+                    val i = Intent(this, QrCodeActivity::class.java)
+                    startActivityForResult(i, 1)
+                }
+
                 R.id.login -> {
                     val i = Intent(this, LoginActivity::class.java)
+                    startActivity(i)
+                }
+
+                R.id.exit -> {
+                    val i = Intent(this, LogoutActivity::class.java)
                     startActivity(i)
                 }
             }
@@ -103,6 +122,12 @@ class HomeActivity : AppCompatActivity() {
                 if(response.isSuccessful && user != null){
                     showUserUI(user)
 
+                    binding.navgationView.menu[1].setVisible(true)
+                    binding.navgationView.menu[2].setVisible(true)
+                    binding.navgationView.menu[4].setVisible(true)
+                    binding.navgationView.menu[5].setVisible(false)
+                    binding.navgationView.menu[6].setVisible(true)
+
                 }else if(response.code() == 401) {
                     Snackbar.make(binding.drawerLayout, "Falha na autentição, faça o login novamente!", Snackbar.LENGTH_LONG).show()
                 } else{
@@ -119,22 +144,31 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<User>, t: Throwable) {
-                Snackbar.make(binding.drawerLayout, "Estamos com problemas para se conectar com o servidor!", Snackbar.LENGTH_LONG).show()
-                Log.e("Error", "Falha ao executar serviço login na home!", t)
-            }
+            override fun onFailure(call: Call<User>, t: Throwable) {}
         }
 
         API(this).account.user().enqueue(callback)
     }
 
     fun showUserUI(user: User?) {
-        val h = binding.navgationView.getHeaderView(0)
-        val name = h.findViewById<TextView>(R.id.textNameUser)
-        val image = h.findViewById<ImageView>(R.id.imageUser)
+        if(user != null) {
+            val h = binding.navgationView.getHeaderView(0)
+            val name = h.findViewById<TextView>(R.id.textNameUser)
+            val image = h.findViewById<ImageView>(R.id.imageUser)
 
-        name.setText(user?.name)
-        image.setImageResource(R.drawable.no_user)
+            name.setText("Olá ${user?.name}")
+
+            Picasso.get().load("http://10.0.2.2:8000/${user?.image}")
+                .error(R.drawable.no_image)
+                .into(image)
+        }else {
+            val h = binding.navgationView.getHeaderView(0)
+            val name = h.findViewById<TextView>(R.id.textNameUser)
+            val image = h.findViewById<ImageView>(R.id.imageUser)
+
+            name.setText("Olá visitante")
+
+        }
 
     }
 
@@ -146,10 +180,6 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.carrinho -> startActivity(Intent(this, CartActivity::class.java))
-            R.id.qrcode -> {
-                val i = Intent(this, QrCodeActivity::class.java)
-                startActivityForResult(i, 1)
-            }
         }
         return toggle.onOptionsItemSelected(item)
     }

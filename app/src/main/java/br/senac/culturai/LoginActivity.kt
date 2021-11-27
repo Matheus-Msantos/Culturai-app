@@ -29,6 +29,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(findViewById(R.id.myToolBar))
+
         val editLoginEmail = binding.editLoginEmail
         val editLoginPassword = binding.editLoginPassword
         val buttonLogin = binding.buttonLogin

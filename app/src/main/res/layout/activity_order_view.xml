@@ -10,9 +10,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,26 +20,33 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textOrderViewId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="32dp"
-                android:text="Detalhe da Compra"
+                android:text="Detalhe do pedido"
                 android:textAlignment="center"
                 android:textColor="@color/orange_500"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="32dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="150dp"
+                app:cardElevation="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="32dp"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/textOrderViewName"
@@ -51,6 +55,7 @@
                 android:layout_marginTop="24dp"
                 android:text="Nome"
                 android:textAlignment="center"
+                android:textColor="@color/black_800"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -76,7 +81,9 @@
                 android:id="@+id/textView24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
                 android:text="Informações da compra "
                 android:textStyle="bold" />
 
@@ -84,21 +91,27 @@
                 android:id="@+id/textOrderViewPriceBuy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
                 android:text="Valor da compra" />
 
             <TextView
                 android:id="@+id/textOrderViewNumberCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
                 android:text="N° Cartão" />
 
             <TextView
                 android:id="@+id/textOrderViewDateBuy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="32dp"
                 android:text="Data da compra" />
 
         </LinearLayout>

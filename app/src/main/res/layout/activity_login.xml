@@ -7,6 +7,14 @@
     android:background="#01318B"
     tools:context=".LoginActivity">
 
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/imageLoginLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageLoginLogo"
         android:layout_width="0dp"

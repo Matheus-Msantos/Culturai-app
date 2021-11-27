@@ -51,7 +51,7 @@ class OrderViewActivity : AppCompatActivity() {
                 Snackbar.make(binding.ContraintLayout, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG)
                     .show()
 
-                Log.e("Error", "Falha ao executar serviço", t)
+                Log.e("Error", "Falha ao executar serviço Order View", t)
             }
         }
 
@@ -88,6 +88,7 @@ class OrderViewActivity : AppCompatActivity() {
 
     fun updateOrderItemUI(List: List<OrderItem>?) {
         List?.forEach() {
+            binding.textOrderViewId.text = "Detalhe do pedido N° ${it.order.id.toString()}"
             binding.textOrderViewPriceBuy.text = "Valor da compra: R$${it.price}"
             binding.textOrderViewNumberCard.text = "Numero do cartão: xxxx.xxxx.xxxx.${it.order.cc_number}"
             binding.textOrderViewDateBuy.text = "Data da compra: ${it.order.created_at}"

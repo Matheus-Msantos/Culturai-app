@@ -1,20 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/home"
         android:checkable="true"
-        android:title="Home" />
+        android:icon="@drawable/icon_home"
+        android:title="Home"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/meusDados"
+        android:checkable="true"
+        android:icon="@drawable/icon_user"
+        android:title="Meus Dados"
+        android:visible="false"
+        app:showAsAction="withText" />
     <item
         android:id="@+id/ingressos"
         android:checkable="true"
-        android:title="Meus ingressos" />
+        android:icon="@drawable/ic_baseline_local_activity_24"
+        android:title="Meus ingressos"
+        android:visible="false"
+        app:showAsAction="withText" />
     <item
-        android:id="@+id/minhaConta"
+        android:id="@+id/qrcode"
         android:checkable="true"
-        android:title="Minha Conta" />
+        android:icon="@drawable/icon_qrcode"
+        android:title="Ler Qrcode"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/cart"
+        android:checkable="true"
+        android:icon="@drawable/icon_cart_empty"
+        android:title="Meu carrinho"
+        android:visible="false"
+        app:showAsAction="withText" />
     <item
         android:id="@+id/login"
         android:checkable="true"
-        android:title="Login" />
+        android:icon="@drawable/icon_login"
+        android:title="Entrar"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/exit"
+        android:icon="@drawable/icon_logout"
+        android:title="Sair"
+        android:visible="false"
+        app:showAsAction="withText" />
 </menu>

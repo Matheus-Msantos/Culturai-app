@@ -71,7 +71,7 @@ class CheckoutFinishActivity : AppCompatActivity() {
     }
 
     fun showUserUI(user: User?) {
-        binding.textCheckoutTitle.text = "Comprado pelo usuário: ${user?.email}"
+        binding.textCheckoutTitle.text = "Comprado por: ${user?.email}"
     }
 
 }

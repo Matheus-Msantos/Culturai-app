@@ -72,6 +72,14 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
             .into(binding.imageAccountUser)
 
         binding.textAccountName.text = user?.name
+        binding.textAccountName2.text = user?.name
+        binding.textAccountEmail.text = user?.email
+        if(user?.isAdmin == 0) {
+            binding.textAccountAdmin.text = "Não"
+        }else {
+            binding.textAccountAdmin.text = "Sim"
+        }
+
     }
 
     companion object {

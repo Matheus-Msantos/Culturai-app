@@ -3,13 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/qrcode"
-        android:icon="@drawable/icon_qrcode"
-        android:title="Qrcode"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/carrinho"
-        android:icon="@drawable/icon_ticket"
+        android:icon="@drawable/icon_cart_menu"
         android:title="carrinho"
         app:showAsAction="always" />
 </menu>

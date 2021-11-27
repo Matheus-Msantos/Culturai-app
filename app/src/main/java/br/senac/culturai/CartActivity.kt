@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import br.senac.culturai.api.API
 import br.senac.culturai.databinding.ActivityCartBinding
 import br.senac.culturai.databinding.CardCartBinding
@@ -42,25 +43,11 @@ class CartActivity : AppCompatActivity() {
                     updateCartUI(cart)
 
                 }else if(response.code() == 401) {
-                    Snackbar.make(binding.LinearLayout3, "Falha na autentição, faça o login novamente", Snackbar.LENGTH_LONG)
-                        .show()
-                } else{
-                    var msg = response.message().toString()
-                    if(msg == "") {
-                        msg = "Não foi possivel entrar na conta"
-                    }
-
-                    Snackbar.make(binding.LinearLayout3, "Produto adicionado ao carrinho", Snackbar.LENGTH_LONG)
-                        .show()
-                    response.errorBody()?.let{
-                        Log.e("Error", it.string())
-                    }
+                    Snackbar.make(binding.LinearLayout3, "Falha na autentição, faça o login novamente", Snackbar.LENGTH_LONG).show()
                 }
             }
 
             override fun onFailure(call: Call<List<Cart>>, t: Throwable) {
-                Snackbar.make(binding.LinearLayout3, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG)
-                    .show()
                 Log.e("Error", "Falha ao executar serviço", t)
             }
 
@@ -73,6 +60,10 @@ class CartActivity : AppCompatActivity() {
         List?.forEach() {
             val cardBinding = CardCartBinding.inflate(layoutInflater)
 
+            binding.buttonCart.visibility = View.VISIBLE
+            binding.CartEmpty.visibility = View.INVISIBLE
+            binding.CartTotalContainer.visibility = View.VISIBLE
+
             Picasso.get().load("http://10.0.2.2:8000/${it.product.image}")
                 .error(R.drawable.no_image)
                 .into(cardBinding.CardImageCart)
@@ -80,6 +71,7 @@ class CartActivity : AppCompatActivity() {
             cardBinding.CardNameCart.text = it.product.name
             cardBinding.CardQuantityCart.text = it.quantity.toString()
             cardBinding.CardPriceCart.text = it.product.price
+            binding.CartTotalPrice.text = it.product.price
 
             cardBinding.ButtonCartAdd.setOnClickListener{view ->
                 addCart(it.product_id, cardBinding, it.product.price.toInt())
@@ -109,8 +101,6 @@ class CartActivity : AppCompatActivity() {
                     card.CardPriceCart.text = total.toString()
                     var value = total
                     binding.CartTotalPrice.text = value.toString()
-
-
 
                 }else {
                     var msg = response.message().toString()
@@ -151,6 +141,8 @@ class CartActivity : AppCompatActivity() {
                     var price = card.CardPriceCart.text.toString().toInt()
                     val total = price - priceP
                     card.CardPriceCart.text = total.toString()
+                    var value = total
+                    binding.CartTotalPrice.text = value.toString()
 
                 }else {
                     var msg = response.message().toString()

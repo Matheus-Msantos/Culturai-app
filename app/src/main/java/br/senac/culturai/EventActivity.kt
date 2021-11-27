@@ -6,7 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import br.senac.culturai.api.API
 import br.senac.culturai.databinding.ActivityEventBinding
@@ -14,6 +18,7 @@ import br.senac.culturai.databinding.ActivityHomeBinding
 import br.senac.culturai.databinding.CardHomeBinding
 import br.senac.culturai.model.Cart
 import br.senac.culturai.model.Product
+import br.senac.culturai.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import retrofit2.Call
@@ -22,7 +27,6 @@ import retrofit2.Response
 
 class EventActivity : AppCompatActivity() {
     lateinit var binding: ActivityEventBinding
-    lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,17 +79,13 @@ class EventActivity : AppCompatActivity() {
                     val listProduct = response.body()
                     updateUI(listProduct)
                 }else {
-                    Snackbar.make(binding.LinearLayout, "Não é possivel atualizar os produtos", Snackbar.LENGTH_LONG)
-                        .show()
-
+                    Snackbar.make(binding.LinearLayout, "Não é possivel carregar as inforções desse evento", Snackbar.LENGTH_LONG).show()
                     Log.e("Error", response.errorBody().toString())
                 }
             }
 
             override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-                Snackbar.make(binding.LinearLayout, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG)
-                    .show()
-
+                Snackbar.make(binding.LinearLayout, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG).show()
                 Log.e("Error", "Falha ao executar serviço", t)
             }
         }
@@ -96,10 +96,14 @@ class EventActivity : AppCompatActivity() {
             API(this).product.search(idProduct).enqueue(callback)
         }
 
-
         buttonTickets.setOnClickListener{view ->
             updateCart(id)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateUser()
     }
 
     fun updateUI(List: List<Product>?) {
@@ -116,7 +120,7 @@ class EventActivity : AppCompatActivity() {
             binding.textEventTitle.text = it.name
             binding.textEventDate.text = it.date
             binding.textEventAddress.text = address
-            binding.textEventPrice.text = it.price
+            binding.textEventPrice.text = "R$ ${it.price}"
             binding.textEventClassification.text = it.classification
             binding.textEventDescription.text = it.description
             binding.textEventCategory.text = it.category.name
@@ -134,7 +138,7 @@ class EventActivity : AppCompatActivity() {
                 val cart = response.body()
                 if(response.isSuccessful && cart != null){
 
-                    Snackbar.make(binding.LinearLayout, "Produto adicionado ao carrinho", Snackbar.LENGTH_LONG)
+                    Snackbar.make(binding.LinearLayout, "Ingresso adicionado ao carrinho", Snackbar.LENGTH_LONG)
                         .show()
 
                 }else if(response.code() == 401) {
@@ -146,7 +150,7 @@ class EventActivity : AppCompatActivity() {
                         msg = "Não foi possivel entrar na conta"
                     }
 
-                    Snackbar.make(binding.LinearLayout, "Produto adicionado ao carrinho", Snackbar.LENGTH_LONG)
+                    Snackbar.make(binding.LinearLayout, "Ingresso adicionado ao carrinho", Snackbar.LENGTH_LONG)
                         .show()
                     response.errorBody()?.let{
                         Log.e("Error", it.string())
@@ -163,6 +167,46 @@ class EventActivity : AppCompatActivity() {
         }
 
         API(this).cart.add(id).enqueue(callback)
+
+    }
+
+    fun updateUser() {
+        val callback = object: Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                val user = response.body()
+                if(response.isSuccessful && user != null){
+                    showUserUI(user)
+
+                }else if(response.code() == 401) {
+                    Snackbar.make(binding.LinearLayout, "Falha na autentição, faça o login novamente!", Snackbar.LENGTH_LONG).show()
+                } else{
+                    var msg = response.message().toString()
+
+                    if(msg == "") {
+                        msg = "Não foi possível acessar sua conta, faça o login novamente!"
+                    }
+
+                    Snackbar.make(binding.LinearLayout, msg, Snackbar.LENGTH_LONG).show()
+                    response.errorBody()?.let{
+                        Log.e("Error", it.string())
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {}
+        }
+
+        API(this).account.user().enqueue(callback)
+    }
+
+    fun showUserUI(user: User?) {
+        if(user != null) {
+            binding.textButtonEnable.visibility = View.GONE
+            binding.buttonTickets.visibility = View.VISIBLE
+        }else {
+            binding.buttonTickets.visibility = View.INVISIBLE
+
+        }
 
     }
 

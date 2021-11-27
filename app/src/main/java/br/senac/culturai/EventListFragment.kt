@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import br.senac.culturai.api.API
 import br.senac.culturai.databinding.CardHomeBinding
 import br.senac.culturai.databinding.FragmentEventListBinding
@@ -28,6 +29,28 @@ class EventListFragment() : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentEventListBinding.inflate(inflater)
 
+        val searchItem = binding.search
+        val searchView = searchItem
+
+        searchView.let {
+            val queryListener = object: SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    query?.let {
+                        searchView.clearFocus()
+                        val searchFragment = SearchFragment.newInstance(it)
+                        parentFragmentManager.beginTransaction().replace(R.id.container, searchFragment).commit()
+                    }
+                   return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return true
+                }
+
+            }
+            searchView.setOnQueryTextListener(queryListener)
+        }
+
         return binding.root
     }
 
@@ -45,7 +68,7 @@ class EventListFragment() : Fragment() {
                     val listProduct = response.body()
                     updateUI(listProduct)
                 }else {
-                    Snackbar.make(binding.container, "Não é possivel atualizar os produtos", Snackbar.LENGTH_LONG)
+                    Snackbar.make(binding.container, "Não é possivel atualizar os eventos", Snackbar.LENGTH_LONG)
                         .show()
 
                     Log.e("Error", response.errorBody().toString())
@@ -53,9 +76,7 @@ class EventListFragment() : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-                Snackbar.make(binding.container, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG)
-                    .show()
-
+                Snackbar.make(binding.container, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG).show()
                 Log.e("Error", "Falha ao executar serviço", t)
             }
         }
@@ -74,17 +95,13 @@ class EventListFragment() : Fragment() {
                     val listCategory = response.body()
                     updateCategoryUI(listCategory)
                 }else {
-                    Snackbar.make(binding.container, "Não é possivel atualizar os produtos", Snackbar.LENGTH_LONG)
-                        .show()
-
+                    Snackbar.make(binding.container, "Não é possivel carregar os eventos", Snackbar.LENGTH_LONG).show()
                     Log.e("Error", response.errorBody().toString())
                 }
             }
 
             override fun onFailure(call: Call<List<Category>>, t: Throwable) {
-                Snackbar.make(binding.container, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG)
-                    .show()
-
+                Snackbar.make(binding.container, "Não foi possivel se conectar ao servidor", Snackbar.LENGTH_LONG).show()
                 Log.e("Error", "Falha ao executar serviço", t)
             }
         }
