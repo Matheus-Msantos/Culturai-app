@@ -44,7 +44,6 @@
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="32dp"
                     tools:srcCompat="@tools:sample/backgrounds/scenic" />
             </androidx.cardview.widget.CardView>
 
@@ -92,16 +91,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
                 android:text="Valor da compra" />
+
+            <TextView
+                android:id="@+id/textOrderViewQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="32dp"
+                android:text="Quantidade" />
 
             <TextView
                 android:id="@+id/textOrderViewNumberCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
                 android:text="N° Cartão" />
 
@@ -110,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
                 android:text="Data da compra" />
 

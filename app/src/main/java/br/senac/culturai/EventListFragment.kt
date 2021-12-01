@@ -147,7 +147,7 @@ class EventListFragment() : Fragment() {
             val cardBinding = CardHomeBinding.inflate(layoutInflater)
 
             val address = """
-                |${it.address.state}, ${it.address.district}, ${it.address.number} - ${it.address.city}
+                | ${it.address.street}, ${it.address.district}, ${it.address.number}, ${it.address.city}, ${it.address.city}
             """.trimMargin()
 
             Picasso.get().load("http://10.0.2.2:8000/${it.image}")
@@ -202,7 +202,7 @@ class EventListFragment() : Fragment() {
         List?.forEach() {
             val cardBinding = CardHomeBinding.inflate(layoutInflater)
             val address = """
-                |${it.address.state}, ${it.address.district}, ${it.address.number} - ${it.address.city}
+                | ${it.address.street}, ${it.address.district}, ${it.address.number}, ${it.address.city}, ${it.address.city}
             """.trimMargin()
 
             Picasso.get().load("http://10.0.2.2:8000/${it.image}")

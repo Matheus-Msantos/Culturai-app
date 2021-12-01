@@ -89,6 +89,7 @@ class OrderViewActivity : AppCompatActivity() {
     fun updateOrderItemUI(List: List<OrderItem>?) {
         List?.forEach() {
             binding.textOrderViewId.text = "Detalhe do pedido N° ${it.order.id.toString()}"
+            binding.textOrderViewQuantity.text = "Quantidade de ingressos: ${it.quantity} Un"
             binding.textOrderViewPriceBuy.text = "Valor da compra: R$${it.price}"
             binding.textOrderViewNumberCard.text = "Numero do cartão: xxxx.xxxx.xxxx.${it.order.cc_number}"
             binding.textOrderViewDateBuy.text = "Data da compra: ${it.order.created_at}"
@@ -100,7 +101,7 @@ class OrderViewActivity : AppCompatActivity() {
         List?.forEach() {
 
             val address = """
-                |${it.address.state}, ${it.address.district}, ${it.address.number} - ${it.address.city}
+                | ${it.address.street}, ${it.address.district}, ${it.address.number}, ${it.address.city}, ${it.address.city}
             """.trimMargin()
 
 
